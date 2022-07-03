@@ -1,0 +1,1 @@
+cmd_/home/ubuntu/Downloads/demo_socket_chat/drive_socket/mahoa_module/main.mod := { echo  /home/ubuntu/Downloads/demo_socket_chat/drive_socket/mahoa_module/main.o;  echo; } > /home/ubuntu/Downloads/demo_socket_chat/drive_socket/mahoa_module/main.mod

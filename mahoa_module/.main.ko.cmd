@@ -1,0 +1,1 @@
+cmd_/home/ubuntu/Downloads/demo_socket_chat/drive_socket/mahoa_module/main.ko := ld -r  -m elf_x86_64  --build-id=sha1  -T scripts/module.lds -o /home/ubuntu/Downloads/demo_socket_chat/drive_socket/mahoa_module/main.ko /home/ubuntu/Downloads/demo_socket_chat/drive_socket/mahoa_module/main.o /home/ubuntu/Downloads/demo_socket_chat/drive_socket/mahoa_module/main.mod.o;  true

@@ -1,0 +1,1 @@
+cmd_/home/minh/Desktop/aes/encrypt_module/aes_encrypt.ko := ld -r -m elf_x86_64  -z max-page-size=0x200000  --build-id  -T ./scripts/module-common.lds -o /home/minh/Desktop/aes/encrypt_module/aes_encrypt.ko /home/minh/Desktop/aes/encrypt_module/aes_encrypt.o /home/minh/Desktop/aes/encrypt_module/aes_encrypt.mod.o;  true
