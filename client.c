@@ -61,9 +61,8 @@ static void *receive_message(void *fun_arg)
             buffer[i+1] = message[i];
         }
         write(des_fd, buffer, strlen(buffer));
-        // memset(message, 0, sizeof(message));
-        // read(des_fd, message, sizeof(message));
-
+        memset(message, 0, sizeof(message));
+        read(des_fd, message, sizeof(message));
         printf("%s: %s\n", name, message); // in ra tin nhat da duoc giai ma
         memset(buffer, 0, sizeof(buffer));
         memset(name, 0, sizeof(name));
@@ -107,11 +106,11 @@ static void *send_message(void *fun_arg)
             // doc ban tin da duoc ma hoa tu driver
             read(des_fd, encrypt_message, sizeof(encrypt_message));
             // gui tin nhan da duoc ma hoa cho server
-            // sent_byte = strlen(encrypt_message);
-            sent_byte = strlen(message);
+            sent_byte = strlen(encrypt_message);
+            // sent_byte = strlen(message);
 
             write(*server_fd, &sent_byte, sizeof(sent_byte));
-            write(*server_fd, message, sent_byte);
+            write(*server_fd, encrypt_message, sent_byte);
         }
         
 

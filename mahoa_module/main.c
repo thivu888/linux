@@ -13,7 +13,7 @@ char xauro[1024],xauma[1024];
 char data[1024];
 int k, choice;
 
-char MA_TT_UPPERCASE[26] = "GHIJKLMNOPQRSTUVWXYZABCDEF"; 
+char MA_TT_UPPERCASE[26] = "GHIJKLMNOPQRSTUVWXYZABCDEF";
 char MA_TT_LOWERASE[26] = "ghijklmnopqrstuvwxyzabcdef";
 int MAHOA = 0;
 int GIAIMA = 1;
@@ -49,7 +49,8 @@ int my_release(struct inode *inode, struct file *filp) {
 }
 
 ssize_t my_read(struct file *filp, char __user *user_buf, size_t len, loff_t *off) {
-    int a = copy_to_user(user_buf, data, 1024);
+	int copytouser = 0;
+	copytouser = copy_to_user(user_buf, data, 1024);
 	return MEM_SIZE;
 }
 
@@ -58,6 +59,7 @@ ssize_t my_write(struct file *filp, const char __user *user_buf, size_t len, lof
     // copy bo nho tu usser xuong nhan
     a = copy_from_user(kernel_buffer, user_buf, len);
     choice = *kernel_buffer;
+	printk("su lua chon ===>%d",choice);
     switch (choice)
     {
     case 1: // case 0 ma hoa
@@ -95,24 +97,27 @@ ssize_t my_write(struct file *filp, const char __user *user_buf, size_t len, lof
 		}
 		xauma[i] = '\0';
         i = 0;
+		
 		while(xauma[i] != '\0') {
             if( xauma[i] >= 65 && xauma[i] <= 90) { // char uppercase
                 for(j = 0; j< 26; j++){
 						if(MA_TT_UPPERCASE[j] == xauma[i]){
-							data[i] = xauma[i] + 65;
+							data[i] = j + 65;
 							break;
 						}
 					}
             } else if( xauma[i] >= 97 && xauma[i] <= 122) {
                 for(j = 0; j< 26; j++){
 						if(MA_TT_LOWERASE[j] == xauma[i]){
-							data[i] = xauma[i] + 97;
+							data[i] = j + 97;
 							break;
 						}
 					}
             } else {
                 data[i] = xauma[i];
             }
+				printk("data ma hoa	 %d",xauma[i]);
+				printk("data giai ma %d",data[i]);
             i++;
 		}
         break;

@@ -1,0 +1,1 @@
+cmd_/home/ubuntu/Downloads/demo_socket_chat/drive_socket/Module.symvers := sed 's/\.ko$$/\.o/' /home/ubuntu/Downloads/demo_socket_chat/drive_socket/modules.order | scripts/mod/modpost -m -a  -o /home/ubuntu/Downloads/demo_socket_chat/drive_socket/Module.symvers -e -i Module.symvers   -T -
